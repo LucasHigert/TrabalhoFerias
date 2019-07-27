@@ -16,3 +16,12 @@ C:\Users\NOTBOOK\Desktop\TrabalhoEntra21\Repositorio\obj\Debug\Repositorio.cspro
 C:\Users\NOTBOOK\Desktop\TrabalhoEntra21\Repositorio\obj\Debug\Repositorio.csproj.CopyComplete
 C:\Users\NOTBOOK\Desktop\TrabalhoEntra21\Repositorio\obj\Debug\Repositorio.dll
 C:\Users\NOTBOOK\Desktop\TrabalhoEntra21\Repositorio\obj\Debug\Repositorio.pdb
+C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Repositorio\obj\Debug\Repositorio.csprojAssemblyReference.cache
+C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Repositorio\obj\Debug\Repositorio.csproj.CoreCompileInputs.cache
+C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Repositorio\obj\Debug\Repositorio.dll
+C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Repositorio\obj\Debug\Repositorio.pdb
+C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Repositorio\bin\Debug\Repositorio.dll
+C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Repositorio\bin\Debug\Repositorio.pdb
+C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Repositorio\bin\Debug\Model.dll
+C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Repositorio\bin\Debug\Model.pdb
+C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Repositorio\obj\Debug\Repositorio.csproj.CopyComplete
