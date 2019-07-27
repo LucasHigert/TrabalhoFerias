@@ -17,4 +17,4 @@ CREATE TABLE estados(
 	);
 
 
-INSERT INTO categorias (nome) VALUES ('heloisa');
+INSERT INTO estados (nome, sigla) VALUES ('heloisa', 'Sc');
