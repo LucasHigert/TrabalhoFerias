@@ -15,7 +15,7 @@ CREATE TABLE estados(
 	nome VARCHAR (50),
 	sigla VARCHAR (2)
 	);
-	
+
 	CREATE TABLE cidades(
 	id INT PRIMARY KEY IDENTITY(1,1),
 

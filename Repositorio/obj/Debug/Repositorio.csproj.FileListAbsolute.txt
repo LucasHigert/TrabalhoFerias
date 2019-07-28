@@ -25,3 +25,12 @@ C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Repositorio\bin\Debug\Repositor
 C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Repositorio\bin\Debug\Model.dll
 C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Repositorio\bin\Debug\Model.pdb
 C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Repositorio\obj\Debug\Repositorio.csproj.CopyComplete
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Repositorio\bin\Debug\Repositorio.dll
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Repositorio\bin\Debug\Repositorio.pdb
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Repositorio\bin\Debug\Model.dll
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Repositorio\bin\Debug\Model.pdb
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Repositorio\obj\Debug\Repositorio.csprojAssemblyReference.cache
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Repositorio\obj\Debug\Repositorio.csproj.CoreCompileInputs.cache
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Repositorio\obj\Debug\Repositorio.csproj.CopyComplete
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Repositorio\obj\Debug\Repositorio.dll
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Repositorio\obj\Debug\Repositorio.pdb

@@ -16,3 +16,9 @@ C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Model\obj\Debug\Model.dll
 C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Model\obj\Debug\Model.pdb
 C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Model\bin\Debug\Model.dll
 C:\Users\NOTBOOK\Documents\GitHub\TrabalhoFerias\Model\bin\Debug\Model.pdb
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Model\bin\Debug\Model.dll
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Model\bin\Debug\Model.pdb
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Model\obj\Debug\Model.dll
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Model\obj\Debug\Model.pdb
+C:\Users\fabia\OneDrive\Documentos\Visual Studio 2017\TrabalhoFerias\Model\obj\Debug\Model.csprojAssemblyReference.cache

@@ -11,8 +11,11 @@ namespace Model
         public int Id;
         public string Nome;
         public string Cpf;
-        
-
+        public DateTime DataNascimento;
+        public int Numero;
+        public string Complemento;
+        public string Logradouro;
+        public string Cep;
 
         //Propriedade para a coluna do id_Estado(FK)
         public int IdEstado;

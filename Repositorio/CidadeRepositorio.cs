@@ -13,8 +13,8 @@ namespace Repositorio
     {
         public List<Cidade> ObterTodos()
         {
-            SqlCommand comando = new SqlCommand();
-            comando.CommandText = "SELECT*FORM cidades";
+            SqlCommand comando = Conexao.Conectar();        
+            comando.CommandText = "SELECT*FROM cidades";
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
 
@@ -26,7 +26,12 @@ namespace Repositorio
                 cidade.Id = Convert.ToInt32(linha["id"]);
                 cidade.Nome = linha["nome"].ToString();
                 cidade.Cpf = linha["cpf"].ToString();
-                cidade.IdEstado = Convert.ToInt32(linha["idEstado"]);               
+                cidade.IdEstado = Convert.ToInt32(linha["idEstado"]);
+                cidade.DataNascimento = Convert.ToDateTime(linha["dataNascimento"]);
+                cidade.Numero = Convert.ToInt32(linha["numero"]);
+                cidade.Complemento = linha["complemento"].ToString();
+                cidade.Logradouro = linha["logradouro"].ToString();
+                cidade.Cep = linha["cep"].ToString();
             }
             comando.Connection.Close();
             return cidades;
@@ -35,11 +40,16 @@ namespace Repositorio
         public int Inserir(Cidade cidade)
         {
             SqlCommand comando = new SqlCommand();
-            comando.CommandText = "INSERT INTO cidades (nome, cpf, idEstado, estado) OUTPUT INSERTED.ID VALUES (@NOME, @CPF, @IDESTADO, @ESTADO)";
+            comando.CommandText = "INSERT INTO cidades (nome, cpf, id_estado, estado, data_nascimento, numero, complemeto, logradouro, cep) OUTPUT INSERTED.ID VALUES (@NOME, @CPF, @ID_ESTADO, @ESTADO, @DATA_NASCIMENTO, @NUMERO, @COMPLEMENTO, @LOGRADOURO, @CEP)";
             comando.Parameters.AddWithValue("@NOME", cidade.Nome);
             comando.Parameters.AddWithValue("@CPF", cidade.Cpf);
-            comando.Parameters.AddWithValue("@IDESTADO", cidade.IdEstado);
+            comando.Parameters.AddWithValue("@ID_ESTADO", cidade.IdEstado);
             comando.Parameters.AddWithValue("@ESTADO", cidade.Estado);
+            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", cidade.DataNascimento);
+            comando.Parameters.AddWithValue("@NUMERO", cidade.Numero);
+            comando.Parameters.AddWithValue("@COMPLEMENTO", cidade.Complemento);
+            comando.Parameters.AddWithValue("@LOGRADOURO", cidade.Logradouro);
+            comando.Parameters.AddWithValue("@CEP", cidade.Cep);
             int id = Convert.ToInt32(comando.ExecuteScalar());
             comando.Connection.Close();
             return id;
@@ -66,17 +76,27 @@ namespace Repositorio
             cidade.Nome = linha["nome"].ToString();
             cidade.Cpf = linha["cpf"].ToString();
             cidade.IdEstado = Convert.ToInt32(linha["idEstado"]);
+            cidade.DataNascimento = Convert.ToDateTime(linha["dataNascimento"]);
+            cidade.Numero = Convert.ToInt32(linha["numero"]);
+            cidade.Complemento = linha["complemento"].ToString();
+            cidade.Logradouro = linha["logradouro"].ToString();
+            cidade.Cep = linha["cep"].ToString();
             return cidade;
         }
 
         public bool Alterar(Cidade cidade)
         {
             SqlCommand comando = new SqlCommand();
-            comando.CommandText = "UPDATE cidades SET nome = @NOME, cpf = @CPF, idEstado = @IDESTADO, estado = @ESTADO WHERE id = @ID";
+            comando.CommandText = "UPDATE cidades SET nome = @NOME, cpf = @CPF, idEstado = @ID_ESTADO, estado = @ESTADO WHERE id = @ID";
             comando.Parameters.AddWithValue("@NOME", cidade.Nome);
             comando.Parameters.AddWithValue("@CPF", cidade.Cpf);
-            comando.Parameters.AddWithValue("@IDESTADO", cidade.IdEstado);
+            comando.Parameters.AddWithValue("@ID_ESTADO", cidade.IdEstado);
             comando.Parameters.AddWithValue("@ESTADO", cidade.Estado);
+            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", cidade.DataNascimento);
+            comando.Parameters.AddWithValue("@NUMERO", cidade.Numero);
+            comando.Parameters.AddWithValue("@COMPLEMENTO", cidade.Complemento);
+            comando.Parameters.AddWithValue("@LOGRADOURO", cidade.Logradouro);
+            comando.Parameters.AddWithValue("@CEP", cidade.Cep);
             int quantidadeAfetada = comando.ExecuteNonQuery();
             comando.Connection.Close();
             return quantidadeAfetada == 1;
