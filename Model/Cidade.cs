@@ -9,13 +9,6 @@ namespace Model
    public class Cidade
     {
         public int Id;
-        public string Nome;
-        public string Cpf;
-        public DateTime DataNascimento;
-        public int Numero;
-        public string Complemento;
-        public string Logradouro;
-        public string Cep;
 
         //Propriedade para a coluna do id_Estado(FK)
         public int IdEstado;
@@ -24,5 +17,8 @@ namespace Model
          * informações de estado através da cidade.
          */
         public Estado Estado;
+
+        public string Nome;
+        public int NumeroHabitantes;
     }
 }

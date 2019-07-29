@@ -49,6 +49,7 @@ namespace View.Controllers
         public ActionResult Update(int id, string nome, string sigla)
         {
             Estado estado = new Estado();
+            estado.Id = id;
             estado.Nome = nome;
             estado.Sigla = sigla;
 

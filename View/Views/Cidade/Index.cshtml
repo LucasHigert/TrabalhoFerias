@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Cidades</h2>
+<h2>Lista de Cidades</h2>
 <div class="row">
     <div class="col-12">
         <a href=" /cidade/cadastro" class="btn btn-danger">Cadastro de Nova Cidade</a>
@@ -17,47 +17,35 @@
                 <tr>
                     <th>Código</th>
                     <th>Nome</th>
-                    <th>Cpf</th>
-                    <th>Data de Nascimento</th>
-                    <th>Complemento</th>
-                    <th>Logradouro</th>
-                    <th>CEP</th>
+                    <th>Numero de habitantes</th>
                     <th>Código do Estado</th>
                     <th>Ação</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach(Model.Cidade cidade in ViewBag.Cidades)
+                @foreach (Model.Cidade cidade in ViewBag.Cidades)
                 {
-                <tr>
-                    <td>@cidade.Id</td>
-                    <td>@cidade.Nome</td>
-                    <td>@cidade.Cpf</td>
-                    <td>@cidade.DataNascimento</td>
-                    <td>@cidade.Complemento</td>
-                    <td>@cidade.Logradouro</td>
-                    <td>@cidade.Cep</td>
-                    <td>@cidade.IdEstado</td>
-                    <td>
-                        <a href="/cidade/editar?id=@cidade.Id" class="btn btn-primary">
-                            <i class="fas fa-pen"></i>Editar
-                        </a>
-                        <a href="/cidade/apagar?id=@cidade.Id" class="btn btn-danger">
-                            <i class="fas fa-trash"></i>Excluir
-                        </a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>@cidade.Id</td>
+                        <td>@cidade.Nome</td>
+                        <td>@cidade.NumeroHabitantes</td>
+                        <td>@cidade.IdEstado</td>
+                        <td>
+                            <a href="/cidade/editar?id=@cidade.Id" class="btn btn-primary">
+                                <i class="fas fa-pen"></i>Editar
+                            </a>
+                            <a href="/cidade/apagar?id=@cidade.Id" class="btn btn-danger">
+                                <i class="fas fa-trash"></i>Excluir
+                            </a>
+                        </td>
+                    </tr>
                 }
             </tbody>
             <tfoot>
                 <tr>
                     <th>Código</th>
                     <th>Nome</th>
-                    <th>Cpf</th>
-                    <th>Data de Nascimento</th>
-                    <th>Complemento</th>
-                    <th>Logradouro</th>
-                    <th>CEP</th>
+                    <th>Numero de habitantes</th>
                     <th>Código do Estado</th>
                     <th>Ação</th>
                 </tr>

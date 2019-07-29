@@ -27,20 +27,18 @@ namespace View.Controllers
 
         public ActionResult Cadastro()
         {
+            EstadoRepositorio estadoRepositorio = new EstadoRepositorio();
+            List<Estado> estados = estadoRepositorio.ObterTodos();
+            ViewBag.Estados = estados;
             return View();
         }
 
-        public ActionResult Store(string nome, string cpf, int idEstado, DateTime dataNascimento, int numero, string complemento, string logradouro, string cep)
+        public ActionResult Store(string nome, int estado,int numeroHabitantes)
         {
             Cidade cidade = new Cidade();
             cidade.Nome = nome;
-            cidade.Cpf = cpf;
-            cidade.IdEstado = idEstado;
-            cidade.DataNascimento = dataNascimento;
-            cidade.Numero = numero;
-            cidade.Complemento = complemento; 
-            cidade.Logradouro = logradouro;
-            cidade.Cep = cep;
+            cidade.IdEstado = estado;
+            cidade.NumeroHabitantes = numeroHabitantes;
             repositorio.Inserir(cidade);
             return RedirectToAction("Index");
         }
@@ -49,21 +47,22 @@ namespace View.Controllers
         {
             Cidade cidade = repositorio.ObterPeloId(id);
             ViewBag.Cidade = cidade;
+
+            EstadoRepositorio estadoRepositorio = new EstadoRepositorio();
+            List<Estado> estados= estadoRepositorio.ObterTodos();
+            ViewBag.Estados = estados;
+
             return View();
         }
 
-        public ActionResult Update(int id, string nome, string cpf, int idEstado, DateTime dataNascimento, int numero, string complemento, string logradouro, string cep)
+        public ActionResult Update(int id, string nome, int estado,int numeroHabitantes)
         {
             Cidade cidade = new Cidade();
             cidade.Nome = nome;
-            cidade.Cpf = cpf;
-            cidade.IdEstado = idEstado;
-            cidade.DataNascimento = dataNascimento;
-            cidade.Numero = numero;
-            cidade.Complemento = complemento;
-            cidade.Logradouro = logradouro;
-            cidade.Cep = cep;
-
+            cidade.Id = id;
+            cidade.IdEstado = estado;
+            cidade.NumeroHabitantes = numeroHabitantes;
+            
             repositorio.Alterar(cidade);
             return RedirectToAction("Index");
         }

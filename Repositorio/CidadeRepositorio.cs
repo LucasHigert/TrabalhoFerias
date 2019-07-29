@@ -14,7 +14,13 @@ namespace Repositorio
         public List<Cidade> ObterTodos()
         {
             SqlCommand comando = Conexao.Conectar();        
-            comando.CommandText = "SELECT*FROM cidades";
+            comando.CommandText = @"SELECT cidades.id AS 'CidadeId',
+                                    cidades.nome AS 'CidadeNome',
+                                    cidades.id_estado AS 'CidadeIdEstado',
+                                    cidades.numero_habitantes AS 'CidadeNumeroHabitantes',
+                                    estados.nome AS 'EstadoNome'
+FROM cidades INNER JOIN estados ON (cidades.id_estado = estados.id)";
+
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
 
@@ -23,15 +29,14 @@ namespace Repositorio
             foreach (DataRow linha in tabela.Rows)
             {
                 Cidade cidade = new Cidade();
-                cidade.Id = Convert.ToInt32(linha["id"]);
-                cidade.Nome = linha["nome"].ToString();
-                cidade.Cpf = linha["cpf"].ToString();
-                cidade.IdEstado = Convert.ToInt32(linha["idEstado"]);
-                cidade.DataNascimento = Convert.ToDateTime(linha["dataNascimento"]);
-                cidade.Numero = Convert.ToInt32(linha["numero"]);
-                cidade.Complemento = linha["complemento"].ToString();
-                cidade.Logradouro = linha["logradouro"].ToString();
-                cidade.Cep = linha["cep"].ToString();
+                cidade.Id = Convert.ToInt32(linha["CidadeId"]);
+                cidade.IdEstado = Convert.ToInt32(linha["CidadeIdEstado"]);
+                cidade.Nome = linha["CidadeNome"].ToString();
+                cidade.NumeroHabitantes= Convert.ToInt32(linha["CidadeNumeroHabitantes"]);
+
+                cidade.Estado = new Estado();
+                cidade.Estado.Nome = linha["EstadoNome"].ToString();
+                cidades.Add(cidade);
             }
             comando.Connection.Close();
             return cidades;
@@ -39,17 +44,11 @@ namespace Repositorio
 
         public int Inserir(Cidade cidade)
         {
-            SqlCommand comando = new SqlCommand();
-            comando.CommandText = "INSERT INTO cidades (nome, cpf, id_estado, estado, data_nascimento, numero, complemeto, logradouro, cep) OUTPUT INSERTED.ID VALUES (@NOME, @CPF, @ID_ESTADO, @ESTADO, @DATA_NASCIMENTO, @NUMERO, @COMPLEMENTO, @LOGRADOURO, @CEP)";
-            comando.Parameters.AddWithValue("@NOME", cidade.Nome);
-            comando.Parameters.AddWithValue("@CPF", cidade.Cpf);
+            SqlCommand comando = Conexao.Conectar();
+            comando.CommandText = "INSERT INTO cidades (id_estado, nome, numero_habitantes) OUTPUT INSERTED.ID VALUES (@ID_ESTADO, @NOME, @NUMERO_HABITANTES)";
             comando.Parameters.AddWithValue("@ID_ESTADO", cidade.IdEstado);
-            comando.Parameters.AddWithValue("@ESTADO", cidade.Estado);
-            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", cidade.DataNascimento);
-            comando.Parameters.AddWithValue("@NUMERO", cidade.Numero);
-            comando.Parameters.AddWithValue("@COMPLEMENTO", cidade.Complemento);
-            comando.Parameters.AddWithValue("@LOGRADOURO", cidade.Logradouro);
-            comando.Parameters.AddWithValue("@CEP", cidade.Cep);
+            comando.Parameters.AddWithValue("@NOME", cidade.Nome);
+            comando.Parameters.AddWithValue("@NUMERO_HABITANTES", cidade.NumeroHabitantes);
             int id = Convert.ToInt32(comando.ExecuteScalar());
             comando.Connection.Close();
             return id;
@@ -57,46 +56,44 @@ namespace Repositorio
 
         public Cidade ObterPeloId(int id)
         {
-            SqlCommand comando = new SqlCommand();
-            comando.CommandText = "SELECT * FROM cidades WHERE id = @ID";
+            SqlCommand comando = Conexao.Conectar();
+            comando.CommandText = @"SELECT 
+                                    cidades.id AS 'CidadeId',
+                                    cidades.nome AS 'CidadeNome',
+                                    cidades.id_estado AS 'CidadeIdEstado',
+                                    cidades.numero_habitantes AS 'CidadeNumeroHabitantes',
+                                    estados.nome AS 'EstadoNome'
+FROM cidades INNER JOIN estados on(cidades.id_estado=estados.id) WHERE @ID = cidades.id";
             comando.Parameters.AddWithValue("@ID", id);
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
             comando.Connection.Close();
 
-            if (tabela.Rows.Count == 0)
+            if(tabela.Rows.Count == 0)
             {
                 return null;
             }
 
             DataRow linha = tabela.Rows[0];
             Cidade cidade = new Cidade();
-            cidade.Id = Convert.ToInt32(linha["id"]);
-            cidade.Nome = linha["nome"].ToString();
-            cidade.Cpf = linha["cpf"].ToString();
-            cidade.IdEstado = Convert.ToInt32(linha["idEstado"]);
-            cidade.DataNascimento = Convert.ToDateTime(linha["dataNascimento"]);
-            cidade.Numero = Convert.ToInt32(linha["numero"]);
-            cidade.Complemento = linha["complemento"].ToString();
-            cidade.Logradouro = linha["logradouro"].ToString();
-            cidade.Cep = linha["cep"].ToString();
+            cidade.Id = Convert.ToInt32(linha["CidadeId"]);
+            cidade.IdEstado = Convert.ToInt32(linha["CidadeIdEstado"]);
+            cidade.Nome = linha["CidadeNome"].ToString();
+            cidade.NumeroHabitantes = Convert.ToInt32(linha["CidadeNumeroHabitantes"]);
+            cidade.Estado = new Estado();
+            cidade.Estado.Nome = linha["EstadoNome"].ToString();
             return cidade;
         }
 
         public bool Alterar(Cidade cidade)
         {
-            SqlCommand comando = new SqlCommand();
-            comando.CommandText = "UPDATE cidades SET nome = @NOME, cpf = @CPF, idEstado = @ID_ESTADO, estado = @ESTADO WHERE id = @ID";
+            SqlCommand comando = Conexao.Conectar();
+            comando.CommandText = "UPDATE cidades SET nome = @NOME,id_estado= ID_ESTADO, numero_habitantes = @NUMERO_HABITANTES WHERE id = @ID";
             comando.Parameters.AddWithValue("@NOME", cidade.Nome);
-            comando.Parameters.AddWithValue("@CPF", cidade.Cpf);
             comando.Parameters.AddWithValue("@ID_ESTADO", cidade.IdEstado);
-            comando.Parameters.AddWithValue("@ESTADO", cidade.Estado);
-            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", cidade.DataNascimento);
-            comando.Parameters.AddWithValue("@NUMERO", cidade.Numero);
-            comando.Parameters.AddWithValue("@COMPLEMENTO", cidade.Complemento);
-            comando.Parameters.AddWithValue("@LOGRADOURO", cidade.Logradouro);
-            comando.Parameters.AddWithValue("@CEP", cidade.Cep);
+            comando.Parameters.AddWithValue("@NUMERO_HABITANTES", cidade.NumeroHabitantes);
+            comando.Parameters.AddWithValue("@ID", cidade.Id);
             int quantidadeAfetada = comando.ExecuteNonQuery();
             comando.Connection.Close();
             return quantidadeAfetada == 1;
@@ -104,8 +101,8 @@ namespace Repositorio
 
         public bool Apagar(int id)
         {
-            SqlCommand comando = new SqlCommand();
-            comando.CommandText = "DELETE FROM ciades WHERE id = @ID";
+            SqlCommand comando = Conexao.Conectar();
+            comando.CommandText = "DELETE FROM cidades WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             int quantidadeAfetada = comando.ExecuteNonQuery();
             comando.Connection.Close();
