@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="CategoriaRepositorio.cs" />
     <Compile Include="CidadeRepositorio.cs" />
+    <Compile Include="ClienteRepositorio.cs" />
     <Compile Include="Conexao.cs" />
     <Compile Include="EstadoRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
