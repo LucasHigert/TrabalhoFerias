@@ -3,26 +3,35 @@
     ViewBag.Title = "Cadastro";
 }
 
-<h2>Cadastro de Categorias</h2>
+<h2>Cadastro</h2>
+<div class="container container-fluid">
 
-<form method="post" action="/categoria/store">
+    @*div class="col-12">
+    <div class="bg-light navbar-nav rounded-bottom">
+        <h3 class="align-baseline mb-3 mt-2 p-3 text-info">Cadastro de Categoria</h3>
+    </div>
+</div>*@
 
-    <a href="/categoria/index" class="btn btn-danger">Lista de Categorias</a>
+    <form  method="post" action="/categoria/store">
 
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <label for="campo-nome">Nome</label>
-                <input type="text" name="nome" class="form-control" id="campo-nome" />
+        <h3>Cadastro</h3>
+
+        <a href="/categoria/index" class="btn btn-danger">Lista de Categorias</a>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-nome">Nome</label>
+                    <input type="text" name="nome" class="form-control" id="campo-nome" />
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <button type="submit" class="btn btn-success">Salvar</button>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
+ </div>

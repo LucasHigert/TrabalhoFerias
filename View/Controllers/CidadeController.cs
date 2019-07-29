@@ -18,6 +18,7 @@ namespace View.Controllers
         }
 
         // GET: Cidade
+
         public ActionResult Index()
         {
             List<Cidade> cidades = repositorio.ObterTodos();

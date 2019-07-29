@@ -25,7 +25,8 @@ CREATE TABLE cidades(
 	nome VARCHAR (50),
 	numero_habitantes INT
 	);
-	CREATE TABLE clientes(
+
+CREATE TABLE clientes(
     id INT PRIMARY KEY IDENTITY(1,1),
     id_cidade INT, FOREIGN KEY(id_cidade) REFERENCES cidades(id),
 
@@ -38,16 +39,26 @@ CREATE TABLE cidades(
     cep NCHAR(10)
 );
 
-INSERT INTO cidades
-(id_estado, nome, numero_habitantes)
-OUTPUT INSERTED.ID VALUES
-('2', 'helo', '2')
+CREATE TABLE projetos (
+id INT PRIMARY KEY IDENTITY (1,1),
+id_cliente INT,
+FOREIGN KEY (id_cliente) REFERENCES clientes (id),
+nome VARCHAR (50),
+data_criacao DATETIME2(7),
+data_finalizacao DATETIME2(7)
+);
 
-SELECT cidades.id AS 'id',
-                                    cidades.nome AS 'nome',
-                                    cidades.id_estado AS 'id_estado',
-                                    cidades.numero_habitantes AS 'numero_habitantes',
-                                    estados.id AS 'idEstado',
-                                    estados.nome AS 'nome_estado',
-                                    estados.sigla AS 'sigla' FROM cidades
-                             INNER JOIN estados ON (cidades.id_estado = estados.id)
+CREATE TABLE tarefas (
+id INT PRIMARY KEY IDENTITY (1,1),
+
+id_usuario_responsavel INT, 
+	FOREIGN KEY (id_usuario_responsavel) REFERENCES usuarios(id),
+id_projeto INT,
+	FOREIGN KEY (id_projeto) REFERENCES projetos(id),
+id_categoria INT,
+	FOREIGN KEY (id_categoria) REFERENCES categorias(id),
+
+titulo VARCHAR (50),
+descricao TEXT,
+duracao DATETIME2(7)
+);

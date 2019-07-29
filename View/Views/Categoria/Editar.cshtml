@@ -5,26 +5,30 @@
 
 <h2>Editar Categoria</h2>
 
-<form method="post" action="/categoria/update">
+<div class="container container-fluid">
 
-    <a href="/categoria/index" class="btn btn-danger">Lista de Categorias</a>
+    <form method="post" action="/categoria/update">
 
-    <input type="hidden" name="id" value="@ViewBag.categoria.Id" />
+        <a href="/categoria/index" class="btn btn-danger">Lista de Categorias</a>
 
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <label for="campo-nome">Nome</label>
-                <input type="text" name="nome" class="form-control" id="campo-nome" value="@ViewBag.categoria.Nome" />
+        <input type="hidden" name="id" value="@ViewBag.categoria.Id" />
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-nome">Nome</label>
+                    <input type="text" name="nome" class="form-control" id="campo-nome" value="@ViewBag.categoria.Nome" />
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <button type="submit" class="btn btn-success">Salvar</button>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
             </div>
         </div>
+    </form>
+
     </div>
-</form>

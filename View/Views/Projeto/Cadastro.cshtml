@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+<h2>Cadastro</h2>
+<div class="container container-fluid">
+    <div class="row">
+        <div class="container">
+            <nav class="bg-light navbar-nav rounded-bottom">
+                <h3 class="align-baseline mb-3 mt-2 p-3 text-info">Cadastro de Projetos</h3>
+            </nav>
+        </div>
+    </div>
+    <form class="mt-3" action="/projeto/store/" method="post">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-nome-projeto">Nome do Projeto</label>
+                    <input type="text" name="projetoNome" class="form-control" id="campo-nome-projeto" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-data-criacao">Data de Criação</label>
+                    <input type="date" name="dataCriacao" class="form-control" id="campo-data-criacao" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-data-conclusao">Data de Conclusão</label>
+                    <input type="date" name="dataConclusao" class="form-control" id="campo-data-conclusao" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-nome-cliente">Nome do Cliente</label>
+                    <select name="cliente" class="form-control" id="campo-nome-cliente">
+                        <option disabled="disabled" selected="selected">Selecione um cliente</option>
+                        @foreach (Model.Cliente cliente in ViewBag.Clientes)
+                        {
+                            <option value="@cliente.Id">@cliente.Nome</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+

@@ -17,8 +17,11 @@ namespace View.Controllers
             repositorio = new ClienteRepositorio();
         }
         // GET: Cliente
+
         public ActionResult Index()
         {
+            List<Cliente> clientes = repositorio.ObterTodos();
+            ViewBag.Clientes = clientes;
             return View();
         }
         public ActionResult Cadastro()

@@ -14,16 +14,17 @@ namespace Repositorio
         public List<Cliente> ObterTodos()
         {
             SqlCommand comando = Conexao.Conectar();
-            comando.CommandText = @"SELECT clientes.id AS 'ClienteId', 
-clientes.id_cidade AS 'IdCidades',
-clientes.nome AS 'ClienteNome', 
-clientes.cpf AS 'ClienteCpf', 
-clientes.data_nascimento AS 'ClienteDataNascimento',
-clientes.numero AS 'ClienteNumero', 
-clientes.complemento AS 'ClienteComplemento', 
-clientes.logradouro AS 'ClienteLogradouro',
-clientes.cep AS 'ClienteCEP',
-cidades.nome AS 'CidadeNome' FROM clientes INNER JOIN cidades ON (clientes.id_cidade = cidades.id) INNER JOIN estados ON (cidades.id_estado = estados.id)";
+            comando.CommandText = @"SELECT  clientes.id AS 'ClienteId', 
+                                            clientes.id_cidade AS 'IdCidades',
+                                            clientes.nome AS 'ClienteNome', 
+                                            clientes.cpf AS 'ClienteCpf', 
+                                            clientes.data_nascimento AS 'ClienteDataNascimento',
+                                            clientes.numero AS 'ClienteNumero', 
+                                            clientes.complemento AS 'ClienteComplemento', 
+                                            clientes.logradouro AS 'ClienteLogradouro',
+                                            clientes.cep AS 'ClienteCep',
+                                            cidades.nome AS 'CidadeNome' 
+                    FROM clientes INNER JOIN cidades ON (clientes.id_cidade = cidades.id) INNER JOIN estados ON (cidades.id_estado = estados.id)";
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -41,7 +42,7 @@ cidades.nome AS 'CidadeNome' FROM clientes INNER JOIN cidades ON (clientes.id_ci
                 cliente.Numero = Convert.ToInt32(linha["ClienteNumero"]);
                 cliente.Complemento = linha["ClienteComplemento"].ToString();
                 cliente.Logradouro = linha["ClienteLogradouro"].ToString();
-                cliente.Cep = linha["ClienteCEP"].ToString();
+                cliente.Cep = linha["ClienteCep"].ToString();
 
                 cliente.Cidade = new Cidade();
                 cliente.Cidade.Nome = linha["CidadeNome"].ToString();
@@ -86,15 +87,15 @@ cidades.nome AS 'CidadeNome' FROM clientes INNER JOIN cidades ON (clientes.id_ci
         {
             SqlCommand comando = Conexao.Conectar();
             comando.CommandText = @"SELECT clientes.id AS 'ClienteId', 
-clientes.nome AS 'ClienteNome', 
-cidades.nome AS 'CidadeNome',
-clientes.id_cidade AS 'ClienteIdCidade',
-clientes.cpf AS 'ClienteCpf', 
-FORMAT(clientes.data_nascimento, 'dd/MM/yyyy') AS 'ClienteDataNascimento',
-clientes.numero AS 'ClienteNumero', 
-clientes.complemento AS 'ClienteComplemento', 
-clientes.logradouro AS 'ClienteLogradouro',
-clientes.cep AS 'ClienteCEP' FROM clientes INNER JOIN cidades ON (clientes.id_cidade = cidades.id) INNER JOIN estados ON (cidades.id_estado = estados.id) WHERE @ID = clientes.id";
+            clientes.nome AS 'ClienteNome', 
+            cidades.nome AS 'CidadeNome',
+            clientes.id_cidade AS 'ClienteIdCidade',
+            clientes.cpf AS 'ClienteCpf', 
+            FORMAT(clientes.data_nascimento, 'dd/MM/yyyy') AS 'ClienteDataNascimento',
+            clientes.numero AS 'ClienteNumero', 
+            clientes.complemento AS 'ClienteComplemento', 
+            clientes.logradouro AS 'ClienteLogradouro',
+            clientes.cep AS 'ClienteCEP' FROM clientes INNER JOIN cidades ON (clientes.id_cidade = cidades.id) INNER JOIN estados ON (cidades.id_estado = estados.id) WHERE @ID = clientes.id";
             comando.Parameters.AddWithValue("@ID", id);
 
             DataTable tabela = new DataTable();

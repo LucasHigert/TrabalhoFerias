@@ -29,9 +29,9 @@ namespace Repositorio
  * --------------------------
  * estados - ok
  * cidades - ok
- * clientes -
- * projetos - 
+ * clientes - ok 
+ * projetos - ok
  * -------------------------
- * tarefas - 
+ * tarefas - ok
  */
  

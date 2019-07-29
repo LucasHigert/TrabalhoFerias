@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-   public class Estado
+    public class Projeto
     {
         public int Id;
+        public int IdCliente;
 
         public string Nome;
-        public string Sigla;
+
+        public DateTime DataCriacao;
+        public DateTime DataConclusao;
+
+        public Cliente Cliente;
     }
 }
-

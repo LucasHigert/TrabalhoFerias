@@ -9,16 +9,17 @@ namespace Model
    public class Cliente
     {
         public int Id;
+        public int IdCidade;
         public int Numero;
-        public string Nome;
+
         public string Cpf;
-        public string Cep;
-        public string Logradouro;
+        public string Nome;
         public string Complemento;
+        public string Logradouro;
+        public string Cep;
+
         public DateTime DataNascimento;
 
-
-        public int IdCidade;
         public Cidade Cidade;
     }
 }

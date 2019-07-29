@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+
+<div class="container container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="bg-light navbar-nav rounded-bottom">
+                <h3 class="align-baseline mb-3 mt-2 p-3 text-info">Editar cidade</h3>
+            </div>
+        </div>
+    </div>
+    <form class="mt-3" action="/projeto/atualizar" method="post">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <input type="hidden" name="id" value="@ViewBag.Projeto.Id" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-nome-projeto">Nome do Projeto</label>
+                    <input type="text" id="campo-nome-projeto" class="form-control" name="nomeProjeto" value="@ViewBag.Projeto.Nome" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-data-criacao">Data de Criação</label>
+                    <input type="date" id="campo-data-criacao" class="form-control" name="dataCriacao" value="@ViewBag.Projeto.DataCriacao" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-data-conclusao">Data de Conclusão</label>
+                    <input type="date" name="dataConclusao" class="form-control" id="campo-data-conclusao" value="" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-nome-cliente">Cliente</label>
+                    <select class="form-control" name="clienteNome" id="campo-nome-cliente">
+                        @foreach (Model.Cliente cliente in ViewBag.Clientes)
+                        {
+                            if (cliente.Id == ViewBag.Projeto.IdCliente)
+                            {
+                                <option value="@cliente.Id" selected="selected">@cliente.Nome</option>
+                            }
+                            else
+                            {
+                                <option value="@cliente.Id">@cliente.Nome</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-success">Salvar</button>
+            </div>
+        </div>
+    </form>
+</div>

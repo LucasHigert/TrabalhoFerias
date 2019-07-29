@@ -2,58 +2,61 @@
 @{
     ViewBag.Title = "Editar";
 }
+<div class="container container-fluid">
 
-<form method="post" action="/cidade/update">
-    <h2>Editar</h2>
+    <form method="post" action="/cidade/update">
+        <h2>Editar</h2>
 
-    <a href="/cidade/index" class="btn btn-danger">LiSta de Cidades</a>
-    <input type="hidden" name="id" value="@ViewBag.cidade.Id" />
+        <a href="/cidade/index" class="btn btn-danger">Lista de Cidades</a>
 
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <label for="campo-nome">Nome</label>
-                <input type="text" name="nome" class="form-control" id="campo-nome" value="@ViewBag.cidade.Nome" />
+        <input type="hidden" name="id" value="@ViewBag.Cidade.Id" />
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-nome">Nome da Cidade</label>
+                    <input type="text" name="nome" class="form-control" id="campo-nome" value="@ViewBag.Cidade.Nome" />
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <label form="campo-estado">Estado</label>
-                <select class="form-control" name="estado">
-                    <option disabled="disabled" selected="selected">Selecione um estado</option>
-                    @foreach (Model.Estado estado in ViewBag.Estados)
-                    {
-                        if (estado.Id == ViewBag.Cidade.IdEstado)
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label form="campo-estado">Estado</label>
+                    <select class="form-control" name="estado">
+                        <option disabled="disabled" selected="selected">Selecione um estado</option>
+                        @foreach (Model.Estado estado in ViewBag.Estados)
                         {
-                            <option value="@estado.Id" selected="selected">@estado.Nome</option>
+                            if (estado.Id == ViewBag.Cidade.IdEstado)
+                            {
+                                <option value="@estado.Id" selected="selected">@estado.Nome</option>
+                            }
+                            else
+                            {
+                                <option value="@estado.Id">@estado.Nome</option>
+                            }
                         }
-                        else
-                        {
-                            <option value="@estado.Id">@estado.Nome</option>
-                        }
-                    }
-                </select>
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <label for="campo-numero">Numero de habitantes</label>
-                <input type="text" name="numeroHabitantes" class="form-control" id="campo-numeroHabitantes"     value="@ViewBag.Cidade.NumeroHabitantes" />
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="campo-numero">Numero de habitantes</label>
+                    <input type="text" name="numeroHabitantes" class="form-control" id="campo-numeroHabitantes" value="@ViewBag.Cidade.NumeroHabitantes" />
+                </div>
             </div>
         </div>
-    </div>
-  
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <button type="submit" class="btn btn-success">Salvar</button>
-            </div>
-        </div>
-    </div>
-</form>
 
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
