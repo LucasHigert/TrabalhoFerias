@@ -25,13 +25,13 @@ namespace Repositorio
 
 /*tabelas
  * usuário - ok
- * categorias - 
+ * categorias - ok
  * --------------------------
- * estados - 
- * cidades - 
- * clientes -
- * projetos - 
+ * estados - ok
+ * cidades - ok
+ * clientes - ok 
+ * projetos - ok
  * -------------------------
- * tarefas - 
+ * tarefas - ok
  */
  

@@ -9,17 +9,12 @@ namespace Model
    public class Cidade
     {
         public int Id;
-        public string Nome;
-        public string Cpf;
-        
-
-
-        //Propriedade para a coluna do id_Estado(FK)
         public int IdEstado;
+        public int NumeroHabitantes;
 
-        /*Objeto da estado que permitirá acessar as 
-         * informações de estado através da cidade.
-         */
+        public string Nome;
+
         public Estado Estado;
+
     }
 }

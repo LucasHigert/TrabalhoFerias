@@ -18,6 +18,7 @@ namespace View.Controllers
         }
 
         // GET: Usuario
+
         public ActionResult Index()
         {
             List<Usuario> usuarios = repositorio.ObterTodos();

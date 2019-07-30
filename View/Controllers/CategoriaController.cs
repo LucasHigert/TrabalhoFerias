@@ -18,6 +18,7 @@ namespace View.Controllers
         }
 
         // GET: Categoria
+
         public ActionResult Index()
         {
             List<Categoria> categorias = repositorio.ObterTodos();
