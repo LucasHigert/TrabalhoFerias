@@ -25,7 +25,6 @@ CREATE TABLE cidades(
 	nome VARCHAR (50),
 	numero_habitantes INT
 	);
-
 CREATE TABLE clientes(
     id INT PRIMARY KEY IDENTITY(1,1),
     id_cidade INT, FOREIGN KEY(id_cidade) REFERENCES cidades(id),

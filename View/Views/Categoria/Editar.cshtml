@@ -3,16 +3,29 @@
     ViewBag.Title = "Editar";
 }
 
-<h2>Editar Categoria</h2>
+
 
 <div class="container container-fluid">
 
+    <div class="row">
+        <div class="col-12">
+            <div class="bg-pink navbar-nav rounded-bottom">
+                <h3 class="align-baseline mb-3 mt-2 p-3 text-info">Editando categoria</h3>
+            </div>
+        </div>
+    </div>
     <form method="post" action="/categoria/update">
 
         <a href="/categoria/index" class="btn btn-danger">Lista de Categorias</a>
 
-        <input type="hidden" name="id" value="@ViewBag.categoria.Id" />
 
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <input type="hidden" name="id" value="@ViewBag.categoria.Id" />
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
@@ -31,4 +44,4 @@
         </div>
     </form>
 
-    </div>
+</div>

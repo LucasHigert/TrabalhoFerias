@@ -3,12 +3,11 @@
     ViewBag.Title = "Cadastro";
 }
 
-<h2>Cadastro</h2>
 <div class="container container-fluid">
     <div class="row">
         <div class="container">
             <nav class="bg-light navbar-nav rounded-bottom">
-                <h3 class="align-baseline mb-3 mt-2 p-3 text-info">Cadastro de Projetos</h3>
+                <h3 class="align-baseline mb-3 mt-2 p-3 text-info">Cadastro de Projeto</h3>
             </nav>
         </div>
     </div>
@@ -17,7 +16,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-nome-projeto">Nome do Projeto</label>
-                    <input type="text" name="projetoNome" class="form-control" id="campo-nome-projeto" />
+                    <input type="text" name="projetoNome" class="form-control" id="campo-nome-projeto"required="" />
                 </div>
             </div>
         </div>
@@ -25,7 +24,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-data-criacao">Data de Criação</label>
-                    <input type="date" name="dataCriacao" class="form-control" id="campo-data-criacao" />
+                    <input type="date" name="dataCriacao" class="form-control" id="campo-data-criacao"required="" />
                 </div>
             </div>
         </div>
@@ -33,7 +32,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-data-conclusao">Data de Conclusão</label>
-                    <input type="date" name="dataConclusao" class="form-control" id="campo-data-conclusao" />
+                    <input type="date" name="dataConclusao" class="form-control" id="campo-data-conclusao"required="" />
                 </div>
             </div>
         </div>
@@ -41,7 +40,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-nome-cliente">Nome do Cliente</label>
-                    <select name="cliente" class="form-control" id="campo-nome-cliente">
+                    <select name="cliente" class="form-control" id="campo-nome-cliente"required="">
                         <option disabled="disabled" selected="selected">Selecione um cliente</option>
                         @foreach (Model.Cliente cliente in ViewBag.Clientes)
                         {

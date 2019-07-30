@@ -4,15 +4,24 @@
 }
 
 <div class="container container-fluid">
+
+    <div class="row">
+        <div class="col-12">
+            <div class="bg-pink navbar-nav rounded-bottom">
+                <h3 class="align-baseline mb-3 mt-2 p-3 text-info">Cadastro de Cidade</h3>
+            </div>
+        </div>
+    </div>
+
+
     <form method="post" action="/cidade/store">
 
-        <h2>Cadastro de Cidades</h2>
         <a href="/cidade/index" class="btn btn-danger">Lista de Cidades</a>
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-nome">Nome da Cidade</label>
-                    <input type="text" name="nome" class="form-control" id="campo-nome" />
+                    <input type="text" name="nome" class="form-control" id="campo-nome "required="" />
                 </div>
             </div>
         </div>
@@ -20,7 +29,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label form="campo-estado">Estado</label>
-                    <select class="form-control" name="estado">
+                    <select class="form-control" name="estado" id="campo-estado" required="">
                         <option disabled="disabled" selected="selected">Selecione um estado</option>
 
                         @foreach (Model.Estado estado in ViewBag.Estados)
@@ -36,7 +45,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-numeroHabitantes">Numero De Habitantes</label>
-                    <input type="text" name="numeroHabitantes" class="form-control" id="campo-numeroHabitantes" />
+                    <input type="text" name="numeroHabitantes" class="form-control" id="campo-numeroHabitantes"required="" />
                 </div>
             </div>
         </div>
