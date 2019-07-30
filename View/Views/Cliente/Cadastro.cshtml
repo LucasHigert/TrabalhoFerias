@@ -3,12 +3,15 @@
     ViewBag.Title = "Cadastro";
 }
 
-<h2>Cadastro</h2>
+
+
 <div class="container container-fluid">
+
+
     <div class="row">
         <div class="col-12">
             <div class="bg-light navbar-nav rounded-bottom">
-                <h3 class="align-baseline mb-3 mt-2 p-3 text-info">Cadastro de Clientes</h3>
+                <h3 class="align-baseline mb-3 mt-2 p-3 text-info">Cadastro de Cliente</h3>
             </div>
         </div>
     </div>
@@ -17,7 +20,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-nome">Nome</label>
-                    <input type="text" name="nome" class="form-control" id="campo-nome" />
+                    <input type="text" name="nome" class="form-control" id="campo-nome"required="" />
                 </div>
             </div>
         </div>
@@ -25,7 +28,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-cidade">Cidade</label>
-                    <select name="cidade" id="campo-cidade" class="form-control">
+                    <select name="cidade" id="campo-cidade" class="form-control"required="">
                         <option disabled="disabled" selected="selected">Selecione uma cidade</option>
                         @foreach (Model.Cidade cidade in ViewBag.Cidade)
                         {
@@ -39,7 +42,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-cpf">CPF</label>
-                    <input type="text" name="cpf" class="form-control" id="campo-cpf" />
+                    <input type="text" name="cpf" class="form-control" id="campo-cpf" required=""/>
                 </div>
             </div>
         </div>
@@ -47,7 +50,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-data-nascimento">Data de nascimento</label>
-                    <input type="date" name="dataNascimento" class="form-control" id="campo-data-nascimento" />
+                    <input type="date" name="dataNascimento" class="form-control" id="campo-data-nascimento"required="" />
                 </div>
             </div>
         </div>
@@ -55,7 +58,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-numero">Número</label>
-                    <input type="number" name="numero" class="form-control" id="campo-numero" />
+                    <input type="number" name="numero" class="form-control" id="campo-numero"required="" />
                 </div>
             </div>
         </div>
@@ -63,7 +66,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-complemento">Complemento</label>
-                    <input type="text" name="complemento" class="form-control" id="campo-complemento" />
+                    <input type="text" name="complemento" class="form-control" id="campo-complemento"required="" />
                 </div>
             </div>
         </div>
@@ -71,7 +74,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-logradouro">Logradouro</label>
-                    <input type="text" name="logradouro" class="form-control" id="campo-logradouro" />
+                    <input type="text" name="logradouro" class="form-control" id="campo-logradouro" required=""/>
                 </div>
             </div>
         </div>
@@ -79,7 +82,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="campo-cep">CEP</label>
-                    <input type="text" name="cep" class="form-control" id="campo-cep" />
+                    <input type="text" name="cep" class="form-control" id="campo-cep" required=""/>
                 </div>
             </div>
         </div>
